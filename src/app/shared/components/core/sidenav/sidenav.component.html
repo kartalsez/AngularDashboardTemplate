@@ -1,0 +1,16 @@
+<section fxLayout="row" fxLayoutAlign="{{drawer.opened ? 'space-between' : 'center'}} center">
+  <img *ngIf="drawer.opened" class="logo" src="../../../../assets/images/angular-logo.png">
+  <button *ngIf="drawer.opened; else smallLogo" mat-icon-button (click)="drawer.toggle()"><mat-icon aria-hidden="false" aria-label="Menu icon">menu</mat-icon></button>
+  <ng-template #smallLogo>
+    <button mat-icon-button (click)="drawer.toggle()"><img class="small-logo" src="../../../../assets/images/angular-logo-small.jpeg"></button>
+  </ng-template>
+</section>
+<section class="menu-items" style="margin-top: 16px;" fxLayout="column" [fxLayoutAlign]="!drawer.opened ? 'flex-start center' : 'flex-start flex-start'">
+  <p [routerLink]="item_.url" [fxLayoutAlign]="!drawer.opened ? 'center flex-start' : 'flex-start flex-start'"
+     [matTooltip]="item_.name" matTooltipPosition="right" *ngFor="let item_ of menuItems" [ngClass]="{'selected': item_.isSelected}">
+    <a fxLayoutAlign="flex-start center">
+      <mat-icon aria-hidden="false" aria-label="Example home icon">{{item_.icon}}</mat-icon>
+      <span *ngIf="drawer.opened">{{item_.name}}</span>
+    </a>
+  </p>
+</section>

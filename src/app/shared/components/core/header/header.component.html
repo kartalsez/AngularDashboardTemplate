@@ -1,0 +1,18 @@
+<header fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center" fxLayoutAlign.xs="center center">
+    <section>
+        <img class="logo" src="../../../../assets/images/angular-logo.png">
+    </section>
+    <section>
+        <aside [matMenuTriggerFor]="menuAccount" fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-icon class="avatar-icon">account_circle</mat-icon>
+            <span>Sezer Kartal</span>
+            <mat-icon>keyboard_arrow_down</mat-icon>
+        </aside>
+        <mat-menu #menuAccount="matMenu">
+            <button mat-menu-item>Profil</button>
+            <button mat-menu-item>Ayarlar</button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item>Oturumu Kapat</button>
+        </mat-menu>
+    </section>
+</header>

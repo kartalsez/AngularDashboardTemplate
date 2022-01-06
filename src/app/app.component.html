@@ -1,0 +1,20 @@
+<mat-drawer-container [ngClass]="{'side-nav-closed': !drawer.opened}">
+  <mat-drawer #drawer [opened]="false" [mode]="mode.value" fxLayout="column" fxLayoutAlign="flex-start center">
+    <app-sidenav [drawer]="drawer"></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content fxLayout="column">
+    <perfect-scrollbar>
+      <section fxFlex class="main-section" fxLayout="column">
+        <app-header fxFlex="120px"></app-header>
+        <main fxFlex style="padding: 16px 20px 16px;">
+          <router-outlet></router-outlet>
+        </main>
+      </section>
+    </perfect-scrollbar>
+    <app-footer fxFlex="100px"></app-footer>
+  </mat-drawer-content>
+</mat-drawer-container>
+<div class="spinner-div" *ngIf="showSpinner$ | async">
+  <mat-spinner></mat-spinner>
+  <img src="assets/images/angular-logo-small.jpeg">
+</div>
